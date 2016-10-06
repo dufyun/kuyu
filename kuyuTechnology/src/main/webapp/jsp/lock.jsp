@@ -70,12 +70,10 @@
     <div class="col">
         <h3>synchronized</h3>
         <p>一：Java锁Synchronized，对象锁和类锁举例：（详情看代码示例）</p>
-        <p>二：synchronized关键字可标记四种代码块：（详情看代码示例）</p>
+        <p>二：synchronized关键字可标记方法和代码块：（详情看代码示例）</p>
         <ol>
-        	<li>实例方法</li>
-        	<li>实例方法中的代码块</li>
-        	<li>静态方法</li>
-        	<li> 静态方法中的代码块</li>
+        	<li>实例方法和代码块</li>
+        	<li>静态方法和代码块</li>
         </ol>
     </div>
     <div class="col">
@@ -92,7 +90,15 @@
 <div class="section" id="css_declaration_order">
     <div class="col">
         <h3>死锁</h3>
-        <p>死锁的原因：由于两个线程相互等待对方已被锁定的资源</p>
+        <p>死锁是两个甚至多个线程被永久阻塞时的一种运行局面。死锁的原因：由于两个甚至多个线程相互等待对方已被锁定的资源。</p>
+        <h3>避免死锁</h3>
+        <p/>
+        <ol>
+        	<li>避免嵌套封锁：这是死锁最主要的原因的，如果你已经有一个资源了就要避免封锁另一个资源。如果你运行时只有一个对象封锁，那是几乎不可能出现一个死锁局面的。</li>
+        	<li>只对有请求的进行封锁：你应当只想你要运行的资源获取封锁，比如在上述程序中我在封锁的完全的对象资源。但是如果我们只对它所属领域中的一个感兴趣，那我们应当封锁住那个特殊的领域而并非完全的对象。</li>
+        	<li>避免无限期的等待：如果两个线程正在等待对象结束，无限期的使用线程加入，如果你的线程必须要等待另一个线程的结束，若是等待进程的结束加入最好准备最长时间。</li>
+        </ol>
+        	
     </div>
     <div class="col">
         <div class="highlight">
@@ -111,27 +117,40 @@
     <div class="col">
         <div class="highlight">
         <pre>
-Java多线程-锁:<a href="http://www.linuxidc.com/Linux/2016-09/134801.htm">http://www.linuxidc.com/Linux/2016-09/134801.htm</a>
+<p>Java多线程-锁:<a href="http://www.linuxidc.com/Linux/2016-09/134801.htm" target="_blank">http://www.linuxidc.com/Linux/2016-09/134801.htm</a></p>
+<p>Java多线程并发锁和原子操作，你真的了解吗？:<a href="http://blog.csdn.net/luohuacanyue/article/details/7796352" target="_blank">http://blog.csdn.net/luohuacanyue/article/details/7796352</a></
         </pre>
 		</div>
     </div>
 </div>
-<hr>
+
 <div class="section" id="css_declaration_order">
     <div class="col">
         <h3>数据库锁</h3>
-        <p>死锁的原因是由于 两个线程相互等待 对方已被锁定的资源</p>
+        <p/>
         <ol>
-            <li>Positioning</li>
+        	<li>锁的概念</li>
+        	<li>锁的分类</li>
+        	<li>锁的粒度</li>
         </ol>
-        <p>Positioning 处在第一位，因为他可以使一个元素脱离正常文本流，并且覆盖盒模型相关的样式。盒模型紧跟其后，因为他决定了一个组件的大小和位置。</p>
+        </p>
+        <h4>附：</h4>
+        <p>数据库锁：<a href="http://www.cnblogs.com/zhouqianhua/archive/2011/04/15/2017049.html" target="_blank">http://www.cnblogs.com/zhouqianhua/archive/2011/04/15/2017049.html</a></p>
     </div>
     <div class="col">
         <div class="highlight">
         <pre>
-        public int getOrderCount(OrderMainQueryModel qm) {
-			return myDao.getOrderCount(qm);
-		}
+1:概念
+<p>数据库是一个多用户使用的共享资源。当多个用户并发地存取数据时，在数据库中就会产生多个事务同时存取同一数据的情况。若对并发操作不加控制就可能会读取和存储不正确的数据，破坏数据库的一致性。
+加锁是实现数据库并发控制的一个非常重要的技术。当事务在对某个数据对象进行操作前，先向系统发出请求，对其加锁。加锁后事务就对该数据对象有了一定的控制，在该事务释放锁之前，其他的事务不能对此数据对象进行更新操作。</p>
+2:分类
+<p>共享（S)锁：多个事务可封锁一个共享页；任何事务都不能修改该页； 通常是该页被读取完毕，S锁立即被释放。</p> 
+<p>排它（X)锁：仅允许一个事务封锁此页；其他任何事务必须等到X锁被释放才能对该页进行访问；X锁一直到事务结束才能被释放。</p> 
+<p>更新（U)锁：更新锁在修改操作的初始化阶段用来锁定可能要被修改的资源，这样可以避免使用共享锁造成的死锁现象。</p>
+<p>因为使用共享锁时，修改数据的操作分为两步，首先获得一个共享锁，读取数据，然后将共享锁升级为排它锁，然后再执行修改操作。这样如果同时有两个或多个事务同时对一个事务申请了共享锁，在修改数据的时候，这些事务都要将共享锁升级为排它锁。这时，这些事务都不会释放共享锁而是一直等待对方释放，这样就造成了死锁。如果一个数据在修改前直接申请更新锁，在数据修改的时候再升级为排它锁，就可以避免死锁。</p>
+2:粒度
+<p>锁定在较小的粒度的资源 --行 ，增大系统并发量，同时也增大系统开销。维护锁多</p>
+<p>锁定在较大的粒度的资源 --表 ，降低系统并发量，同时也降低系统开销。维护锁少</p>
         </pre>
 		</div>
     </div>
