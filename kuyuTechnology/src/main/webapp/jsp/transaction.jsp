@@ -92,7 +92,9 @@
         	<li>Serializable</li>
         </ol>
         <p>在事务的并发操作中可能会出现<b>脏读（dirty read），不可重复读（repeatable read），幻读（phantom read）</b>。</p>
-        <img  src="/image/Isolation-level.png" style="height: 50%;width: 100%;">
+        <a href="/image/Isolation-level.png" target="_blank">
+        	<img  src="/image/Isolation-level.png" style="height: 50%;width: 100%;">
+        </a>
          
     </div>
     <div class="col">
@@ -137,7 +139,9 @@
         	<li>Spring事务的架构？</li>
         	<li>使用Spring如何进行事务管理？</li>
         </ol>
-      <img  src="/image/Isolation-spread.png"  style="height: 50%;width: 100%;">
+        <a href="/image/Isolation-spread.png" target="_blank">
+     	 	<img  src="/image/Isolation-spread.png"  style="height: 50%;width: 100%;">
+     	</a>
       <p><b>附：</b></p>
       <p> 什么是事务的传播特性?：<a href="http://javaeye-mao.iteye.com/blog/1501534" target="_blank">http://javaeye-mao.iteye.com/blog/1501534</a></p>
       <p> 一图学习 Spring事务传播性：<a href="http://ju.outofmemory.cn/entry/113944" target="_blank">http://ju.outofmemory.cn/entry/113944</a></p>
@@ -147,7 +151,9 @@
         <pre>
 <p>事务的传播级别和数据隔离级别，是事务控制的两个主要特性。传播级别定义的是事务的控制范围，事务隔离级别定义的是事务在数据库读写方面的控制范围。</p>
 <span>（1）：Spring事务传播性有七种，REQUIRED、SUPPORTS、REQUIRES-NEW、NOT-SUPPORTED、MANDATORY、NEVER、NESTED。如下思维导图：</span>
+<a href="/image/transaction-propagation.png" target="_blank">
 <img  src="/image/transaction-propagation.png" style="height: 80%;width: 100%;">
+</a>
 Spring事务的传播特性： 
 1. PROPAGATION_REQUIRED: 如果存在一个事务，则支持当前事务。如果没有事务则开启新的事物。 
 2. PROPAGATION_SUPPORTS: 如果存在一个事务，支持当前事务。如果没有事务，则非事务的执行。 
