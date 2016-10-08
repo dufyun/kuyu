@@ -119,6 +119,7 @@
         <pre>
 <p>Java多线程-锁:<a href="http://www.linuxidc.com/Linux/2016-09/134801.htm" target="_blank">http://www.linuxidc.com/Linux/2016-09/134801.htm</a></p>
 <p>Java多线程之并发锁:<a href="http://www.linuxidc.com/Linux/2012-03/57069.htm" target="_blank">http://www.linuxidc.com/Linux/2012-03/57069.htm</a></p>
+<p>Java多线程之多线程的锁机制:<a href="http://www.linuxidc.com/Linux/2016-07/133403.htm" target="_blank">http://www.linuxidc.com/Linux/2016-07/133403.htm</a></p>
 <p>Java多线程并发锁和原子操作，你真的了解吗？:<a href="http://blog.csdn.net/luohuacanyue/article/details/7796352" target="_blank">http://blog.csdn.net/luohuacanyue/article/details/7796352</a></
         </pre>
 		</div>
