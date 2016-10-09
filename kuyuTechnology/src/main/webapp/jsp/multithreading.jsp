@@ -131,6 +131,7 @@
     <div class="col">
         <h3>线程的优先级</h3>
         <p>Java线程有优先级，优先级高的线程会获得较多的运行机会。</p>
+        <p><b style="color: red;">注：具有较高线程优先级的线程对象仅表示此线程具有较多的执行机会，而非优先执行。</b></p>
     </div>
     <div class="col">
         <div class="highlight">
