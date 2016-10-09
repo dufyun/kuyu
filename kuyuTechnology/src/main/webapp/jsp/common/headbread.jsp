@@ -14,7 +14,7 @@
 </div>
 <div class="section toc">
     <div class="col">
-        <h4><a href="##">知识点</a></h4>
+        <h4><a href="${pageContext.request.contextPath}/">知识点</a></h4>
         <ul>
             <li><a href="${pageContext.request.contextPath}/jsp/transaction.jsp">事务</a></li>
             <li><a href="${pageContext.request.contextPath}/jsp/lock.jsp">锁（java, DB）</a></li>
