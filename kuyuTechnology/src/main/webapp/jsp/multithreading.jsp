@@ -138,8 +138,8 @@
     <div class="col">
         <div class="highlight">
         <pre>
-      	<p><a href="/image/primary_multthread_xmind.png" target="_blank">多线程初级思维导图</a></p>
-        <p><a href="/image/medium_multthread_xmind.jp" target="_blank">多线程中级思维导图</a></p>
+      	<p><a href="${pageContext.request.contextPath}/image/primary_multthread_xmind.png" target="_blank">多线程初级思维导图</a></p>
+        <p><a href="${pageContext.request.contextPath}/image/medium_multthread_xmind.jp" target="_blank">多线程中级思维导图</a></p>
         </pre>
 		</div>
     </div>
