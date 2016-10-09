@@ -44,8 +44,8 @@
 <div class="section" id="css_declaration_order">
     <div class="col">
         <h3>synchronized</h3>
-        <p>一：Java锁Synchronized，对象锁和类锁举例：（详情看代码示例）</p>
-        <p>二：synchronized关键字可标记方法和代码块：（详情看代码示例）</p>
+        <p>一：Java锁Synchronized，对象锁和类锁举例：（com.kuyu.study.LockStudy）</p>
+        <p>二：synchronized关键字可标记方法和代码块：（com.kuyu.study.LockStudy）</p>
         <ol>
         	<li>实例方法和代码块</li>
         	<li>静态方法和代码块</li>
