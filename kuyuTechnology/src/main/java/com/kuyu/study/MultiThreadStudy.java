@@ -17,7 +17,7 @@ public class MultiThreadStudy {
 			TestExThread t2 = new TestExThread("B");
 			//t1.start();
 			//t2.start();
-			
+			t1.setPriority(Thread.MAX_PRIORITY);
 			/*2*/
 			TestImRunnable tir1 = new TestImRunnable("C");
 			TestImRunnable tir2 = new TestImRunnable("D");
@@ -33,11 +33,30 @@ public class MultiThreadStudy {
 			
 			Thread t5 = new Thread(ft1);
 			Thread t6 = new Thread(ft2);
-			t5.start();
-			t6.start();
+			//t5.start();
+			//t6.start();
 			
-			Integer integer1 = ft1.get();
-			System.out.println(integer1);
+			//Integer integer1 = ft1.get();
+			//System.out.println(integer1);
+			
+			for (int i = 0; i < 1; i++) {
+				/*4.测试线程优先级*/
+				TestThreadPriority thp1 = new TestThreadPriority("A");
+				TestThreadPriority thp5= new TestThreadPriority("B");
+				TestThreadPriority thp10 = new TestThreadPriority("C");
+				 Thread t7 = new Thread(thp1);
+				// t7.setPriority(Thread.MIN_PRIORITY);
+				 Thread t8 = new Thread(thp5);
+				// t8.setPriority(Thread.NORM_PRIORITY);
+				 Thread t9 = new Thread(thp10);
+				// t9.setPriority(Thread.MAX_PRIORITY);
+				 t7.start();
+				 t8.start();
+				 t9.start();
+			}
+			
+			 
+			 
 		}
 }
 
@@ -104,3 +123,21 @@ class TestImCallable implements Callable<Integer>{
 	
 }
 
+//4.线程的优先级
+class TestThreadPriority implements Runnable{
+	
+	public String name;
+	
+	public TestThreadPriority(String name) {
+		this.name = name;
+	}
+
+	public void sayHello(String name){
+		
+		System.out.println("Hello everyOne ,　My name is " + name);
+	}
+
+	public void run() {
+		sayHello(name);
+	}
+}

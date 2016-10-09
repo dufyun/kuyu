@@ -129,6 +129,26 @@
 </div>
 <div class="section" id="css_declaration_order">
     <div class="col">
+        <h3>线程的优先级</h3>
+        <p>Java线程有优先级，优先级高的线程会获得较多的运行机会。</p>
+    </div>
+    <div class="col">
+        <div class="highlight">
+        <pre>
+<p>五种状态分别如下：
+Java线程的优先级用整数表示，取值范围是1~10，Thread类有以下三个静态常量：
+<li>static int MAX_PRIORITY	线程可以具有的最高优先级，取值为10。</li>
+<li>static int MIN_PRIORITY	线程可以具有的最低优先级，取值为1。</li>
+<li>static int NORM_PRIORITY	分配给线程的默认优先级，取值为5。</li>
+Thread类的setPriority()和getPriority()方法分别用来设置和获取线程的优先级。
+</p>
+        </pre>
+		</div>
+    </div>
+</div>
+
+<div class="section" id="css_declaration_order">
+    <div class="col">
         <h3>多线程思维导图</h3>
         <ol>
         	<li>初级思维导图</li>
@@ -139,7 +159,7 @@
         <div class="highlight">
         <pre>
       	<p><a href="${pageContext.request.contextPath}/image/primary_multthread_xmind.png" target="_blank">多线程初级思维导图</a></p>
-        <p><a href="${pageContext.request.contextPath}/image/medium_multthread_xmind.jp" target="_blank">多线程中级思维导图</a></p>
+        <p><a href="${pageContext.request.contextPath}/image/medium_multthread_xmind.jpg" target="_blank">多线程中级思维导图</a></p>
         </pre>
 		</div>
     </div>
