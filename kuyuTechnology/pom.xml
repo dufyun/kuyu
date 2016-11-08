@@ -27,7 +27,7 @@
 					<stopPort>9999</stopPort>
 					<reload>manual</reload>
 					<webAppConfig>
-						<contextPath>/</contextPath>
+						<contextPath>/kuyuTechnology</contextPath>
 					</webAppConfig>
 					<connectors>
 						<connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
