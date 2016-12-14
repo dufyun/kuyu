@@ -7,6 +7,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>learn_quartz Maven Webapp</name>
   <url>http://maven.apache.org</url>
+  
   <dependencies>
   	<!-- 测试jar -->
     <dependency>
@@ -21,6 +22,11 @@
 		 <artifactId>quartz</artifactId>
 		 <version>2.2.1</version>
 	</dependency>
+	<dependency>
+            <groupId>org.quartz-scheduler</groupId>
+            <artifactId>quartz-jobs</artifactId>
+            <version>2.2.1</version>
+        </dependency>
     <!-- 日志相关jar包 -->
 		<dependency>
 			<groupId>org.slf4j</groupId>

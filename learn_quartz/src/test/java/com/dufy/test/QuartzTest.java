@@ -13,6 +13,7 @@ import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
 import org.quartz.SchedulerFactory;
 import org.quartz.Trigger;
+import org.quartz.TriggerKey;
 import org.quartz.impl.StdSchedulerFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -83,6 +84,28 @@ public class QuartzTest {
 			// TODO: handle exception
 		}
 	}
+	
+	/**
+	 * 运行一次 触发器
+	 */
+	@Test
+	public void testRunOnceTrigger(){
+		
+        try {
+        	//初始化调度器
+			Scheduler sched = sf.getScheduler();
+			//triggerName  triggerGroup
+			TriggerKey tk = new TriggerKey("dufy_trigger1", "dufy_trigger_group");
+			Trigger t = sched.getTrigger(tk);
+			System.out.println("---" + t.getJobKey().getName());
+			sched.triggerJob(t.getJobKey());
+		} catch (SchedulerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
+	}
+	
 	
 	/**
 	 * 测试暂停所有的触发器
