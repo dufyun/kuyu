@@ -14,7 +14,6 @@ import org.quartz.SimpleScheduleBuilder;
 import org.quartz.SimpleTrigger;
 import org.quartz.Trigger;
 import org.quartz.TriggerBuilder;
-import org.quartz.TriggerKey;
 import org.quartz.impl.StdSchedulerFactory;
 
 public class QuartzJdbcTest {
@@ -35,19 +34,19 @@ public class QuartzJdbcTest {
 					.withIdentity("job1_1", "jGroup1")
 					// 任务名，任务组
 					.build();
-		/*	SimpleScheduleBuilder
-					.simpleSchedule();
-					设置这个采用保存到数据库
-		*/
+		
 			
-			// 2、创建Trigger
+			// 触发器类型
 			SimpleScheduleBuilder builder = SimpleScheduleBuilder
 					// 设置执行次数
-				    .repeatSecondlyForTotalCount(100);
-			
+				    .repeatSecondlyForTotalCount(5);
+		
+			//CronScheduleBuilder builder = CronScheduleBuilder.cronSchedule("0/2 * * * * ?");
+			// 2、创建Trigger
 			Trigger trigger = TriggerBuilder.newTrigger()
 					.withIdentity("trigger1_1", "tGroup1").startNow()
-					.withSchedule(builder).build();
+					.withSchedule(builder)
+					.build();
 			
 			// 3、创建Scheduler
 			Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();
@@ -60,6 +59,7 @@ public class QuartzJdbcTest {
 				e.printStackTrace();
 			}
 
+			//一分钟后，关闭调度器
 			scheduler.shutdown();
 
 		} catch (SchedulerException e) {
@@ -77,8 +77,8 @@ public class QuartzJdbcTest {
 			Scheduler scheduler = schedulerFactory.getScheduler();
 			JobKey jobKey = new JobKey("job1_1", "jGroup1");
 			List<? extends Trigger> triggers = scheduler.getTriggersOfJob(jobKey);
-//SELECT TRIGGER_NAME, TRIGGER_GROUP FROM {0}TRIGGERS WHERE SCHED_NAME = {1} AND JOB_NAME = ? AND JOB_GROUP = ?
-			// ②重新恢复在jGroup1组中，名为job1_1的 job的触发器运行
+			//SELECT TRIGGER_NAME, TRIGGER_GROUP FROM {0}TRIGGERS WHERE SCHED_NAME = {1} AND JOB_NAME = ? AND JOB_GROUP = ?
+			// 重新恢复在jGroup1组中，名为job1_1的 job的触发器运行
 			if(triggers.size() > 0){
 				for (Trigger tg : triggers) {
 					// 根据类型判断
