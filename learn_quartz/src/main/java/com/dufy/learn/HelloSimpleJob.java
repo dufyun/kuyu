@@ -63,16 +63,7 @@ public class HelloSimpleJob implements Job {
     
 
         // Say Hello to the World and display the date/time
-    	_log.info("-------------start---- sleep ------ " + context.getJobDetail().getKey().getName());
-    	
-    	try {
-			Thread.sleep(1*30*1000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
     	_log.info("Hello Simple Trigger  World! - " + new Date());
-    	_log.info("-------------start---- end ------");
         
     }
 

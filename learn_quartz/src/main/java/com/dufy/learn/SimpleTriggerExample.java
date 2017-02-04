@@ -30,21 +30,19 @@ import java.util.List;
 public class SimpleTriggerExample {
 	static Logger log = LoggerFactory.getLogger(SimpleTriggerExample.class);
 	
-	private static final String job_name = "dufy_job";
-	private static final String job_group = "dufy_job_group";
+	private static final String job_name = "dufy_job2";
+	private static final String job_group = "dufy_job_group2";
 	
-	private static final String trigger_name = "dufy_trigger";
-	private static final String trigger_group = "dufy_trigger_group";
+	private static final String trigger_name = "dufy_trigger2";
+	private static final String trigger_group = "dufy_trigger_group2";
 
 	public static void main(String[] args) throws Exception {
         SimpleTriggerExample example = new SimpleTriggerExample();
         
         //注册
-        //example.register("dufy_job2", job_group, "dufy_trigger2", trigger_group,45*1000L);
-        //example.register("dufy_job1", job_group, "dufy_trigger1", trigger_group,25*1000L);
         example.register(job_name, job_group, trigger_name, trigger_group,10*1000L);
         //启动
-        //example.start();
+        example.start();
         //恢复
         //example.resumeJob("dufy_job1", "dufy_group1");
 	}
@@ -70,7 +68,7 @@ public class SimpleTriggerExample {
 
         log.info("------- Initialization Complete -----------");
 
-        // 获取当前时间的30s之后
+        // 获取当前时间的afterTime s之后
         long time=  System.currentTimeMillis() + afterTime;
         Date runTime = new Date(time);
 
@@ -80,7 +78,8 @@ public class SimpleTriggerExample {
         // 在quartz中，有组的概念，组+job名称 唯一的
         JobDetail job = newJob(HelloSimpleJob.class).withIdentity(jobName, jobGroup).build();
 
-       // SimpleScheduleBuilder schedBuilder = SimpleScheduleBuilder.repeatSecondlyForTotalCount(1);
+        //是否重复
+        // SimpleScheduleBuilder schedBuilder = SimpleScheduleBuilder.repeatSecondlyForTotalCount(1);
 		// 定义触发器，在下一分钟启动
         Trigger trigger = newTrigger().withIdentity(triggerName, triggerGroup).withSchedule(SimpleScheduleBuilder.simpleSchedule()).startAt(runTime).build();
 
@@ -174,5 +173,7 @@ public class SimpleTriggerExample {
 			e.printStackTrace();
 		}
 	}
+	
+	
 
 }
