@@ -7,6 +7,4 @@ kuyuTechHtml	kuyu知识点整理-静态
 
 kuyuTechnology	kuyu知识点整理-动态
 
-learn_quartz   quartz学习demo	
-
 testCountDemo	统计jar和java的小工具
