@@ -111,7 +111,7 @@ public class AesEncryptUtil {
 	*/
 	public static void main(String args[]) throws Exception {
 
-		String test = "18729902095";
+		String test = "18729990110";
 
 		String data = null;
 		String key = "dufy20170329java";
