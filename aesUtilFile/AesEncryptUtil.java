@@ -1,4 +1,4 @@
-package com.kuyu.b2b2c.util;
+package com.dufy.util;
 
 /**
  * AES 128bit 加密解密工具类
