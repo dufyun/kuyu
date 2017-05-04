@@ -8,10 +8,12 @@ kuyuTechHtml	kuyu知识点整理-静态
 
 kuyuTechnology	kuyu知识点整理-动态
 
-testCountDemo	统计jar和java的小工具 博客地址：http://blog.csdn.net/u010648555/article/details/50674868
+
 
 ssm-demo   Spring+SpringMVC+Mybatis Demo地址：http://blog.csdn.net/u010648555/article/details/56021211
 
 
-**已转移**
-*aesUtilFile  Aes工具类需要的文件，博客地址：http://blog.csdn.net/u010648555/article/details/68066629* 
+**已转移**  
+*aesUtilFile  Aes工具类需要的文件，博客地址：http://blog.csdn.net/u010648555/article/details/68066629*   
+  
+*testCountDemo	统计jar和java的小工具 博客地址：http://blog.csdn.net/u010648555/article/details/50674868*

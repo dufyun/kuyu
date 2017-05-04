@@ -11,7 +11,7 @@ public class UUidGeneratorLockTest {
 
     public  static void main(String[] args) {
         UUidGenerator uuid = new UUidGenerator();
-         String perKey = "1780dufy";
+         String perKey = "1788dufy";
          int  num = 100;
 
 
